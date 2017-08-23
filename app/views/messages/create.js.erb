@@ -1,0 +1,37 @@
+<% publish_to @path do %>
+    var id = "<%= @conversation.id %>";
+    var chatbox = $("#chatbox_" + id + " .chatboxcontent");
+    var sender_id = "<%= @message.user.id %>";
+    var reciever_id = $('meta[name=user-id]').attr("content");
+
+    chatbox.append("<%= j render( partial: @message ) %>");
+    chatbox.scrollTop(chatbox[0].scrollHeight);
+
+    if (sender_id != reciever_id) {
+        chatBox.chatWith(id);
+        chatbox.children().last().removeClass("self").addClass("other");
+        chatbox.scrollTop(chatbox[0].scrollHeight);
+        chatBox.notify();
+    }
+
+/*
+    var themessage='<%= @message.body %>';
+    var doraemon = themessage.match(/mahiwaga/gi);
+    var party = themessage.match(/party/gi);
+
+      if(doraemon.length!=null)
+    {
+         var audioElement= document.createElement('audio');
+         audioElement.setAttribute('src', '/sounds/Doraemon_Mensahe.mp3');
+         audioElement.play();
+    }
+    else
+    {
+           var audioElement= document.createElement('audio');
+           audioElement.setAttribute('src', '/sounds/party.mp3');
+           audioElement.play();
+    }
+
+*/
+
+<% end %>
