@@ -7,6 +7,6 @@
 
 
 production:
-  server: "http://mikeherokutryfaye.herokuapp.com/faye"
+  server: "http://fayerservermike.herokuapp.com/faye"
   secret_token: "b97428d8c0f24ce83374dc6a777dc9d2b1a36d53fb32f14b8ea774f3f26732df"
   signature_expiration: 86400 # one day
