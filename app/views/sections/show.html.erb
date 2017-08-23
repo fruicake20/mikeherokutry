@@ -1,0 +1,124 @@
+<style>
+@media (min-width: 1200px) {
+  .container {
+    width: 500px;
+  }
+}
+</style>
+<%# @page_title = "Show Section:#{@section.name}" %>
+
+<%= link_to("<< Back to list",{:action => 'list', :page_id => @page.id}, :class => 'back_link') %>
+<!--
+<div class="section show">
+	<h2>Show Section</h2>
+
+	<table summary="Section detail view">
+		
+		<tr>
+			<th>Page ID</th>
+			<td><%= @section.page_id %></td>
+		</tr>
+
+		<tr>
+			<th>Section</th>
+			<td><%= @section.name %></td>
+		</tr>
+
+	
+
+		<tr>
+			<th>Position</th>
+			<td><%= @section.position %></td>
+		</tr>
+
+	  	<tr>
+	  		<th>Visible?</th>
+	  		<td><%= @section.visible ? 'true' : 'false'%></td>
+	  	</tr>
+
+	  		<tr>
+			<th>Content Type</th>
+			<td><%= @section.content_type %></td>
+		</tr>
+
+		</tr>
+
+	  		<tr>
+			<th>Content</th>
+			<td><%= @section.content %></td>
+		</tr>
+
+
+		<tr>
+			<th>Created</th>
+			<td><%= @section.created_at %></td>
+		</tr>
+
+		<tr>
+			<th>Updated</th>
+			<td><%= @section.updated_at %></td>
+		</tr>
+	</table>
+</div>
+-->
+
+
+<div class='container'>
+
+ <div class="panel panel-primary">
+      <div class="panel-heading">
+      Show Section
+      </div>
+
+      <div class="panel-body">
+
+     <table summary="Subject details view">
+
+	<tr>
+	  <td>Under Page</td>
+      <td><%= @page.name %></td>
+	</tr>
+
+    <tr>
+      <td>Section name</td>
+      <td><%= @section.name %></td>
+    </tr>
+
+   <tr>
+			<td>Position</td>
+			<td><%= @section.position %></td>
+		</tr>
+
+	  	<tr>
+	  		<td>Visible?</td>
+	  		<td><%= @section.visible ? 'true' : 'false'%></td>
+	  	</tr>
+
+	  		
+			<td>Content Type</td>
+			<td><%= @section.content_type %></td>
+		</tr>
+
+		</tr>
+
+	  		
+			<td>Content</td>
+			<td><%= @section.content %></td>
+		</tr>
+
+
+		<tr>
+			<td>Created</td>
+			<td><%= @section.created_at %></td>
+		</tr>
+
+		<tr>
+			<td>Updated</td>
+			<td><%= @section.updated_at %></td>
+		</tr>
+   </table>
+      </div>
+   
+ </div>
+
+</div>

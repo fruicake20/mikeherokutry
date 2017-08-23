@@ -1,0 +1,28 @@
+<style>
+@media (min-width: 1200px) {
+  .container {
+    width: 700px;
+  }
+}
+</style>
+<%= link_to("<< Back to List", {:action => 'list', :page_id => @page.id}, :class => 'back_link') %>
+
+<br />
+
+<%# @page_title = 'Create Section' %>
+
+
+<div class="container">
+	<div style="background-color:black;border-top-left-radius:10px;border-top-right-radius:10px;color:white;text-align: center;"> <h2 style="padding:10px;">Create Section</h2> </div>
+
+<%= form_for(:section, :url => {:action => 'create', :page_id => @page.id}, :html => {:class => "form-horizontal", :style => "border: solid 1px black;margin-top:-10px;padding:30px;border-bottom-left-radius:10px;border-bottom-right-radius:10px;" }) do |f| %>
+
+<%= render(:partial => "form", :locals => {:f => f}) %>
+
+	<div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+		<%= submit_tag("Create Section", :class => "btn btn-default") %>
+		</div>
+	</div>
+ <% end %>
+ </div> 

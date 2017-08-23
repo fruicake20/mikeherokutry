@@ -1,0 +1,30 @@
+<style>
+@media (min-width: 1200px) {
+  .container {
+    width: 700px;
+  }
+}
+</style>
+
+<%= link_to("<< Back to List", {:action => 'list', :subject_id => @subject.id}, :class => 'back_link') %>
+
+<br />
+
+<%# @page_title = 'Create Page' %>
+
+
+<div class="container">
+	<div style="background-color:black;border-top-left-radius:10px;border-top-right-radius:10px;color:white;text-align: center;"> <h2 style="padding:10px;">Create Page</h2> </div>
+
+<%= form_for(:page, :url => {:action => 'create', :subject_id => @subject.id}, :html => {:class => "form-horizontal", :style => "border: solid 1px black;margin-top:-10px;padding:30px;border-bottom-left-radius:10px;border-bottom-right-radius:10px;" }) do |f| %>
+
+<%= render(:partial => "form", :locals => {:f => f}) %>
+
+
+	<div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+		<%= submit_tag("Create Page", :class => "btn btn-default") %>
+		</div>
+	</div>
+ <% end %>
+ </div> 

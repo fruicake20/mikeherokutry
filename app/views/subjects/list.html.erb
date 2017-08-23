@@ -1,0 +1,117 @@
+
+<!--
+
+<%= link_to("<< Back to Menu", {:controller => 'access', :action => 'menu'}, :class => 'back_link') %>
+
+<div class="subject list">
+	<h2>Subjects</h2>
+
+<%= link_to("Add New Subject", {:action => 'new'}, :class => 'action new') %>
+
+	<div><%= pluralize(@subjects_all.size,'subjects') %> found </div>
+
+
+  <table class="listing" summary="Subject">
+	<tr class="header">
+	<th>&nbsp;</th>
+	<th>Subject</th>
+	<th>Visible</th>
+	<th>Pages</th>
+	<th>Actions</th>
+	</tr>
+	<% @subjects.each do |subject| %>
+	<tr>
+		<td><%= subject.position %></td>
+		<td><%= subject.name %></td>
+		<td class="center"><%= subject.visible %></td>
+		<td class="center"><%= subject.pages.size %></td>
+		<td style="width:265px;">
+			<%= link_to("View Pages", {:controller => 'pages',:action => 'list', :subject_id => subject.id}, :class => 'action show') %>
+			<%= link_to("Show", {:action => 'show', :id => subject.id}, :class => 'action show') %>
+			<%= link_to("Edit", {:action => 'edit', :id => subject.id}, :class => 'action edit') %>
+			<%= link_to("Delete", {:action => 'delete', :id => subject.id}, :class => 'action delete') %>
+		
+		</td>
+	</tr>
+	<% end %>
+  </table>
+
+<%= will_paginate @subjects, :previous_label => 'Previous', :next_label => 'Next' %>
+
+</div>
+-->
+
+
+<div class="container">
+
+<br />
+
+<%= link_to content_tag(:span, nil ,:class => "glyphicon glyphicon-plus-sign")+ "  Add Subject", {:action => "new"}, :class => "btn btn-default btn-sm"%>
+
+<br />
+
+  <h2>Subjects Information</h2>
+  <p style="padding-left:5px;display:inline-block;"><%= pluralize(@subjects_all.size,'subjects') %> found </p>
+<br />
+
+                                                                                  
+  <div class="table-responsive">   
+
+
+
+  <table class="table">
+    <thead>
+    <tr>
+		
+			<th style="border-top-left-radius: 10px;">&nbsp;</</th>
+			<th>Subject</th>
+			<th>Visible</th>
+			<th>Pages</th>
+
+		 	<th style="border-top-right-radius: 10px;width:320px;">Actions</th>
+
+		 </tr>
+    </thead>
+    <tbody>
+    		</tr>
+	<% @subjects.each do |subject| %>
+	<tr>
+		<td><%= subject.position %></td>
+		<td><%= subject.name %></td>
+		<td class="center"><%= subject.visible %></td>
+		<td class="center"><%= subject.pages.size %></td>
+		<td>
+		<!--
+			<%= link_to("View Pages", {:controller => 'pages',:action => 'list', :subject_id => subject.id}, :class => 'action show') %>
+
+			<%= link_to("Show", {:action => 'show', :id => subject.id}, :class => 'action show') %>
+			<%= link_to("Edit", {:action => 'edit', :id => subject.id}, :class => 'action edit') %>
+			<%# link_to("Delete", {:action => 'delete', :id => subject.id}, :class => 'action delete') %>
+
+
+			<%= link_to 'Delete', { action: 'delete' ,id: subject.id}, data: {confirm: 'Are you sure?'} %>
+-->
+
+
+			<%= link_to content_tag(:button, 'View Pages' ,:class => "btn btn-default"), {:controller => 'pages',:action => 'list', :subject_id => subject.id} %>
+
+			<%= link_to content_tag(:button, 'Show' ,:class => "btn btn-default"), {:action => "show", :id => subject.id} %>
+
+
+			<%= link_to content_tag(:button, 'Edit' ,:class => "btn btn-default"),{:action => 'edit', :id => subject.id} %>
+
+			<%= link_to content_tag(:button, 'Delete' ,:class => "btn btn-default"), {:action => "delete",id: subject.id}, data: {confirm: 'Are you sure?'} %>
+
+
+
+</td>
+		
+		
+	</tr>
+	<% end %>
+    </tbody>
+  </table>
+<%= will_paginate @subjects, :previous_label => 'Previous', :next_label => 'Next' %>
+  </div>
+</div>
+

@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transtional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Simple CMS <%= "| #{@page_title}" if @page_title %></title>
+		<meta name="author" content="Michael Agtual">
+		<!-- ,'admin' -->
+		 <%= stylesheet_link_tag    'public','application', :media => "all" %>
+
+
+<style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+
+
+
+
+
+
+	</head>
+<body>
+<!--
+ 	<div id="header">
+ 	  <h1>Simple CMS Admin</h1>
+ 	</div>
+
+ <div id="main">
+ 	 
+ 	 <div id="navigation">
+ 	 	<%= render(:partial => 'layouts/navigation', :locals => {:subjects => @subjects}) %>
+ 	 </div>
+
+ 	 <div id="content">
+ 	 <%= yield %>
+ 	 </div>
+ 	
+
+
+ 	<div id="clear"></div>
+
+ 	<div id="footer">
+ 		<p id="copyright">&copy; michael.com / Michael Agtual</p>
+ 	</div>
+
+ </div>
+
+ -->
+
+<!--
+<div class="jumbotron text-center">
+  <h1>Simple Content Management System</h1>
+  <p></p> 
+</div>
+  
+
+
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4>Content</h4>
+  <%= render(:partial => 'layouts/navigation', :locals => {:subjects => @subjects}) %>
+      <br>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search Blog..">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+    </div>
+
+    <div class="col-sm-9">
+      <h4><small>RECENT POSTS</small></h4>
+      <hr>
+     
+
+
+       <%= yield %>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid">
+  <p>Footer Text</p>
+</footer>
+
+-->
+
+<div class="jumbotron text-center">
+  <h1>My First Bootstrap Page</h1>
+  <p>Resize this responsive page to see the effect!</p> 
+</div>
+  
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-sm-3">
+       <%= render(:partial => 'layouts/navigation', :locals => {:subjects => @subjects}) %>
+    </div>
+
+    <div class="col-sm-9">
+      <%= yield %>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer" style="text-align: right">&copy; fruitcake0020@gmail.com / Michael Agtual</div>
+ </body>
+ </html>	

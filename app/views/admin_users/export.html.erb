@@ -1,0 +1,34 @@
+
+<table style="border: 1px solid #EEEEEE" width="905px" border="1" cellpadding="5" cellspacing="5">
+
+ <tr>
+    <th></th>
+    <th></th>
+    <th>Admin User List</th>
+    <th></th>
+    <th> </th>
+ </tr>
+
+<tr>
+    <th></th>
+</tr>
+
+  <tr>
+    <th>Admin User ID</th>
+    <th>Username</th>
+    <th>Name</th>
+    <th>Email</th>
+
+
+  </tr>
+ 
+ <% @admin_users.each do |p| %>
+  <tr>
+    <td><%= p.id %></td>
+    <td><%= p.username %></td>
+    <td><%= p.name  %></td>
+    <td><%= p.email %></td>
+
+  </tr>
+<% end %>
+</table>                                                

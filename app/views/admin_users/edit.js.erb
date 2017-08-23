@@ -1,0 +1,10 @@
+$('#adminimg').attr('src','<%= @admin_user.userpic.public_filename(:thumbnail) %>');
+$('#admin_user_first_name').val('<%= @admin_user.first_name %>');
+$('#admin_user_last_name').val('<%= @admin_user.last_name %>');
+$('#admin_user_email').val('<%= @admin_user.email %>');
+$('#admin_user_username').val('<%= @admin_user.username %>');
+
+
+
+ $('#modal_title').text('Admin User [Edit]');
+   $('#submit').val("Update Admin User");

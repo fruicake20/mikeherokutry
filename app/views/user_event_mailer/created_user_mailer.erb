@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+    <h1>The New Member!</h1>
+
+     <%= image_tag attachments['r.jpg'].url %>
+
+     <p>Registered at IP: <%= @user_ip %></p>
+     
+     <p>Username: <b><%= @created_user.username %></b></p>
+
+     <p>Name: <b><%= @created_user.first_name %> <%= @created_user.last_name %> </b></p>
+
+     <p>Email: <b><%= @created_user.email %></b></p>
+
+     <p>Created At: <b><%= @created_user.created_at %></b></p>
+
+
+  </body>
+</html>

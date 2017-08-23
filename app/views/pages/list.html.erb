@@ -1,0 +1,124 @@
+<% @page_title = "Pages List" %>
+
+
+
+<!--
+
+<%= link_to("<< Back to Subject", {:controller => 'subjects', :action => 'list'}, :class => 'back_link',:style => 'padding-left:50px;') %>
+
+<div class="page list">
+	<h2>Pages</h2>
+
+	<%= link_to("Add New Page",{:action => 'new',:subject_id => @subject.id}, :class => 'action new') %>
+
+	<div><%= pluralize(@subject_pages.size,'pages') %> found </div>
+
+	<table class="listing" summary="Page List">	
+		<tr class="header">
+			<th>&nbsp;</th>
+			<th>Page</th>
+			<th>Visible</th>
+			<th>Sections</th>
+			<th>Actions</th>
+		</tr>
+	<% @pages.each do |page| %>
+	<tr>
+		<td><%= page.position %></td>
+		<td><%= page.name %></td>
+		<td class="center"><%= status_tag(page.visible) %></td>
+		<td class="center"><%= page.sections.size %></td>
+		<td style="width:280px;">
+
+			<%= link_to("View Sections", {:controller => 'sections',:action => 'list', :page_id => page.id, :subject_id => @subject.id}, :class => 'action show') %>
+	
+
+			<%= link_to("Show",{:action => 'show', :id => page.id,:subject_id => @subject.id}, :class => 'action show') %>
+			<%= link_to("Edit",{:action => 'edit', :id => page.id,:subject_id => @subject.id}, :class => 'action edit') %>
+			<%= link_to("Delete",{:action => 'delete', :id => page.id,:subject_id => @subject.id}, :class => 'action delete') %>
+
+
+		</td>
+	</tr>
+	<% end %>
+ </table>
+<%= will_paginate @pages, :previous_label => 'Previous', :next_label => 'Next' %>
+
+</div>
+
+-->
+
+
+<div class="container">
+
+<br />
+
+<%= link_to content_tag(:span, nil ,:class => "glyphicon glyphicon-plus-sign")+ "  Add Page", {:action => "new",:subject_id => @subject.id}, :class => "btn btn-default btn-sm"%>
+
+<br />
+
+  <h2>Page(s) of <%= @subject.name %> subject</h2>
+  <p style="padding-left:5px;display:inline-block;"><%= pluralize(@subject_pages.size,'pages') %>  found </p>
+<br />
+
+                                                                                  
+  <div class="table-responsive">   
+
+
+
+  <table class="table">
+    <thead>
+    <tr>
+		
+			<th style="border-top-left-radius: 10px;">&nbsp;</</th>
+			<th>Page</th>
+			<th>Visible</th>
+			<th>Sections</th>
+		 	<th style="border-top-right-radius: 10px;width:320px;">Actions</th>
+		 </tr>
+    </thead>
+    <tbody>
+    		</tr>
+	<% @pages.each do |page| %>
+	<tr>
+		<td><%= page.position %></td>
+		<td><%= page.name %></td>
+		<td class="center"><%= page.visible %></td>
+		<td class="center"><%= page.sections.size %></td>
+		<td>
+
+			<%# link_to("View Sections", {:controller => 'sections',:action => 'list', :page_id => page.id, :subject_id => @subject.id}, :class => 'action show') %>
+	
+
+			<%# link_to("Show",{:action => 'show', :id => page.id,:subject_id => @subject.id}, :class => 'action show') %>
+			<%# link_to("Edit",{:action => 'edit', :id => page.id,:subject_id => @subject.id}, :class => 'action edit') %>
+			<%# link_to("Delete",{:action => 'delete', :id => page.id,:subject_id => @subject.id}, :class => 'action delete') %>
+
+
+			<%# link_to 'Delete', { action: 'delete' ,id: page.id,:subject_id => @subject.id}, data: {confirm: 'Are you sure?'} %>
+
+
+
+
+
+			<%= link_to content_tag(:button, 'View Sections' ,:class => "btn btn-default"), {:controller => 'sections',:action => 'list', :page_id => page.id, :subject_id => @subject.id} %>
+
+			<%= link_to content_tag(:button, 'Show' ,:class => "btn btn-default"), {:action => 'show', :id => page.id,:subject_id => @subject.id} %>
+
+
+			<%= link_to content_tag(:button, 'Edit' ,:class => "btn btn-default"),{:action => 'edit', :id => page.id,:subject_id => @subject.id} %>
+
+			<%= link_to content_tag(:button, 'Delete' ,:class => "btn btn-default"),  { action: 'delete' ,id: page.id,:subject_id => @subject.id}, data: {confirm: 'Are you sure?'} %>
+
+
+
+
+
+
+		</td>
+	</tr>
+	<% end %>
+    </tbody>
+  </table>
+<%= will_paginate @pages, renderer: BootstrapPagination::Rails, :previous_label => 'Previous', :next_label => 'Next' %>
+  </div>
+</div>

@@ -1,0 +1,225 @@
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    <div id="nh" class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage"><p style="display:inline-block">SCMS</p></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a  id="myBtn" href="#" data-turbolinks="false">Log In</a></li>
+        <li><a href="#band">Sign Up</a></li>
+ <!--       <li><a href="#tour">TOUR</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Merchandise</a></li>
+            <li><a href="#">Extras</a></li>
+            <li><a href="#">Media</a></li> 
+
+          </ul>
+        </li>
+        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+        -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+ 
+
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+  
+           <%= image_tag('bleach1.jpg', :style => "width: 1200;height: 810px;max-height:810px;" ) %>
+
+        <div class="carousel-caption">
+          <h3>New York</h3>
+          <p>The atmosphere in New York is lorem ipsum.</p>
+        </div>      
+      </div>
+
+      <div class="item">
+            <%= image_tag('bleach2.jpg', :style => "width: 1200;height: 810px;max-height:810px;" ) %>
+
+        <div class="carousel-caption">
+          <h3>Chicago</h3>
+          <p>Thank you, Chicago - A night we won't forget.</p>
+        </div>      
+      </div>
+    
+      <div class="item">
+           <%= image_tag('bleach3.jpg', :style => "width: 1200;height: 810px;max-height:810px;" ) %>
+        <div class="carousel-caption">
+          <h3>LA</h3>
+          <p>Even though the traffic was a mess, we had the best time playing at Venice Beach!</p>
+        </div>      
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+
+</div>
+
+
+
+
+<!-- Trigger/Open The Modal -->
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal"  >
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2 style="text-align: center">SCMS LOGIN</h2>
+    </div>
+    <div class="modal-body">
+	<br />
+ <button type="button" id="fb" class="btn btn-primary btn-block" >Sign in with Facebook</button>
+
+
+<button type="button" class="btn btn-danger btn-block" >Sign in with Google  </button>
+
+
+<hr />
+		<%= form_tag(:action => 'attempt_login') do %>
+	  
+		 <div class="form-group">
+			<%= label_tag(:username) %>
+			<%= text_field_tag(:username, nil ,:class => "form-control")%>
+		  </div>
+		
+		 <div class="form-group">
+			<%= label_tag(:password) %>
+			<%= password_field_tag(:password, nil ,:class => "form-control") %>
+		 </div>
+
+		 <div class="checkbox">
+  			  <label><input type="checkbox"> Remember me</label>
+  		</div>
+		
+			
+			<%= submit_tag("Log In", :class => "btn btn-default") %>
+
+ 	 <% if !flash[:notice].blank? %>
+
+ 	 <div class="notice">
+ 	 	 <br />
+ 	 <%= flash[:notice] %>
+ 	 </div>
+ 	
+ 	<% end %>
+
+		
+<% end %>
+	<br />
+
+
+    </div>
+
+
+
+    <div class="modal-footer">
+      <h3 style="visibility: hidden">Log in</h3>
+    </div>
+  </div>
+
+</div>
+
+<!--
+
+<% @page_title = "Admin Login" %>
+	<div class="container" style="border: 2px solid black;border-radius:10px;padding:30px;padding-top:10px;">
+		<h2 style="padding-left:15px;">Simple Content Management System</h2>
+		<hr style="  border-top: 1px solid black;"/>
+		<br />
+		<%= form_tag(:action => 'attempt_login') do %>
+	  
+		 <div class="form-group" style="margin-top:-20px;">
+			<%= label_tag(:username) %>
+			<%= text_field_tag(:username, nil ,:class => "form-control")%>
+		  </div>
+		
+		 <div class="form-group">
+			<%= label_tag(:password) %>
+			<%= password_field_tag(:password, nil ,:class => "form-control") %>
+		 </div>
+
+		 <div class="checkbox">
+  			  <label><input type="checkbox"> Remember me</label>
+  		</div>
+		
+			
+			<%= submit_tag("Log In", :class => "btn btn-default") %>
+
+ 	 <% if !flash[:notice].blank? %>
+
+ 	 <div class="notice">
+ 	 	 <br />
+ 	 <%= flash[:notice] %>
+ 	 </div>
+ 	
+ 	<% end %>
+
+		
+<% end %>
+</div>
+-->
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+   
+   
+
+}
+
+$(document).on('click','.navbar-collapse.in',function(e) {
+    if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
+        $(this).collapse('hide');
+    }
+});
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+$('#myModal').on('shown.bs.modal', function () {
+    $(this).find('.modal-dialog').css({width:'auto',
+                               height:'auto', 
+                              'max-height':'100%'});
+});
+</script>

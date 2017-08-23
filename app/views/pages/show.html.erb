@@ -1,0 +1,111 @@
+<style>
+@media (min-width: 1200px) {
+  .container {
+    width: 500px;
+  }
+}
+</style>
+<%# @page_title = "Show Page:#{@page.name}" %>
+
+<%= link_to("<< Back to list",{:action => 'list', :subject_id => @subject.id}, :class => 'back_link') %>
+<!-- 
+
+<div class="page show">
+	<h2>Show Page</h2>
+
+	<table summary="Page detail view">
+		
+		<tr>
+			<th>Subject Name</th>
+			<td><%= @subject.name %></td>
+		</tr>
+
+		<tr>
+			<th>Page name</th>
+			<td><%= @page.name %></td>
+		</tr>
+
+		<tr>
+			<th>Permalink</th>
+			<td><%= @page.permalink %></td>
+		</tr>
+
+		<tr>
+			<th>Position</th>
+			<td><%= @page.position %></td>
+		</tr>
+
+	  	<tr>
+	  		<th>Visible?</th>
+	  		<td><%= @page.visible ? 'true' : 'false'%></td>
+	  	</tr>
+
+		<tr>
+			<th>Created</th>
+			<td><%= @page.created_at %></td>
+		</tr>
+
+		<tr>
+			<th>Updated</th>
+			<td><%= @page.updated_at %></td>
+		</tr>
+	</table>
+</div>
+
+-->
+
+<div class='container'>
+
+ <div class="panel panel-primary">
+      <div class="panel-heading">
+      Show Page
+      </div>
+
+      <div class="panel-body">
+
+     <table summary="Subject details view">
+
+	<tr>
+	  <td>Under Subject</td>
+      <td><%= @subject.name %></td>
+	</tr>
+
+    <tr>
+      <td>Page name</td>
+      <td><%= @page.name %></td>
+    </tr>
+
+    <tr>
+      <td>Permalink</td>
+      <td><%= @page.permalink %></td>
+    </tr>
+
+
+    <tr>
+      <td>Position</td>
+      <td><%= @page.position %></td>
+    </tr>
+
+    <tr>
+      <td>Visible?</td>
+      <td><%= @page.visible ? 'true' : 'false'%></td>
+    </tr>
+    <tr>
+      <td>Created</td>
+      <td><%= @page.created_at %></td>
+    </tr> 
+    <tr>
+      <td>Updated</td>
+      <td><%= @page.updated_at %></td>
+    </tr>
+   </table>
+      </div>
+   
+    </div>
+
+
+
+
+
+
+</div>
